@@ -2,30 +2,24 @@ package main
 
 import (
 	"database/sql"
-	"errors"
 )
 
 type User struct {
-	ID     int    `json:"id"`
-	Name   string `json:"name"`
-	Baba   int    `json:"baba"`
-	Winner int    `json:"winner"`
-}
-
-func (p *User) getUser(db *sql.DB) error {
-	return errors.New("Not implemented")
-}
-
-func (p *User) updateUser(db *sql.DB) error {
-	return errors.New("Not implemented")
-}
-
-func (p *User) deleteUser(db *sql.DB) error {
-	return errors.New("Not implemented")
-}
-
-func (p *User) createUser(db *sql.DB) error {
-	return errors.New("Not implemented")
+	ID            uint   `json:"id"`
+	Name          string `json:"name"`
+	Baba          uint   `json:"baba"`
+	BabaCard      uint   `json:"baba_card"`
+	Queen         uint   `json:"queen"`
+	Poker         uint   `json:"poker"`
+	Winner        uint   `json:"winner"`
+	ClassicWinner uint   `json:"classic_winner"`
+	DarkWinner    uint   `json:"dark_winner"`
+	GoldWinner    uint   `json:"gold_winner"`
+	Ordered       uint   `json:"ordered"`
+	Gained        uint   `json:"gained"`
+	MoneyWon      uint64 `json:"money_won"`
+	BestFriend    uint   `json:"best_friend"`
+	Punished      uint   `json:"punished"`
 }
 
 func getUsers(db *sql.DB, start, count int) ([]User, error) {
