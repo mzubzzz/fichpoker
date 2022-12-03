@@ -49,6 +49,7 @@ func (a *App) getUsers(w http.ResponseWriter, r *http.Request) {
 	users, err := getUsers(a.DB, start, count)
 	if err != nil {
 		respondWithError(w, http.StatusInternalServerError, err.Error())
+		log.Printf(err.Error())
 		return
 	}
 	log.Printf("app.getUsers")
@@ -65,15 +66,12 @@ func (a *App) getNewGame(w http.ResponseWriter, r *http.Request) {
 	var u []User
 	err := decoder.Decode(&u)
 	if err != nil {
-		panic(err)
+		log.Panic(err)
 	}
-	log.Println(u)
 
-	game, err := getNewGame(a.DB)
-	if err != nil {
-		respondWithError(w, http.StatusInternalServerError, err.Error())
-		return
-	}
+	game := Game{}
+
+	game.Initialize(a.DB, u)
 
 	respondWithJSON(w, game)
 }
@@ -106,6 +104,6 @@ func respondWithJSON(w http.ResponseWriter, payload interface{}) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE")
 
-	log.Printf("app.response with JSON")
+	log.Printf("app.response with JSON %+v", payload)
 	w.Write(response)
 }
