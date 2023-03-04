@@ -1,8 +1,8 @@
-import {Button, Container, Grid} from "@mui/material";
-import {Link as RouterLink} from 'react-router-dom';
-import Header from "./Header";
+import { Button, Container, Grid } from '@mui/material'
+import { Link as RouterLink } from 'react-router-dom'
+import Header from './Header'
 
-function GamesView() {
+function GamesView (): JSX.Element {
   return (
     <Container maxWidth="sm">
       <Header></Header>
@@ -18,7 +18,7 @@ function GamesView() {
         </Grid>
       </Grid>
     </Container>
-  );
+  )
 }
 
-export default GamesView;
+export default GamesView

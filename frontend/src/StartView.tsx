@@ -1,9 +1,8 @@
-import {Button, Container, Grid} from '@mui/material';
-import {Link as RouterLink} from 'react-router-dom';
-import Header from './Header';
+import { Button, Container, Grid } from '@mui/material'
+import { Link as RouterLink } from 'react-router-dom'
+import Header from './Header'
 
-
-function StartView() {
+function StartView (): JSX.Element {
   return (
     <Container maxWidth="sm">
       <Header></Header>
@@ -33,7 +32,7 @@ function StartView() {
         </Grid>
       </Grid>
     </Container>
-  );
+  )
 }
 
-export default StartView;
+export default StartView

@@ -1,11 +1,10 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import GamesView from './GamesView';
-import TablesView from './TablesView';
-import StartView from './StartView';
-import GameView from './GameView';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import GamesView from './GamesView'
+import TablesView from './TablesView'
+import StartView from './StartView'
+import GameView from './GameView'
 
-function App() {
-
+function App (): React.ReactElement {
   return (
     <>
       <BrowserRouter>
@@ -17,7 +16,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
